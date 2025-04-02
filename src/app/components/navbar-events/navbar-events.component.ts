@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, } from '@angular/core';
+import { statusOption } from '../../models/statusOption';
 
 @Component({
   selector: 'app-navbar-events',
@@ -8,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class NavbarEventsComponent {
 
+  options: statusOption[] = [
+    {name: "Upcoming", url: "#"},
+    {name: "Past", url: "#"}
+  ]
 }
