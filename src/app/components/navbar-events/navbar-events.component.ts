@@ -1,16 +1,16 @@
 import { Component, } from '@angular/core';
-import { statusOption } from '../../models/statusOption';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-navbar-events',
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './navbar-events.component.html',
   styleUrl: './navbar-events.component.css'
 })
 export class NavbarEventsComponent {
 
-  options: statusOption[] = [
-    {name: "Upcoming", url: "#"},
-    {name: "Past", url: "#"}
+  options = [
+    {name: "Upcoming", url: "home"},
+    {name: "Past", url: "teste"}
   ]
 }

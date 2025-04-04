@@ -1,17 +1,14 @@
-<div class="card-event">
-  <div class="event">
-    <div class="row">
-      <div class="col-4 text-dark-emphasis">Requerente</div>
-      <div class="col-8">Alberto Cesar Pinheiro da Silva</div>
-    </div>
-    <div class="row">
-      <div class="col-4 text-dark-emphasis">Requerente</div>
-      <div class="col-8">Alberto Cesar Pinheiro da Silva</div>
-    </div>
-    <div class="row">
-      <div class="col-4 text-dark-emphasis">Requerente</div>
-      <div class="col-8">Alberto Cesar Pinheiro da Silva</div>
-    </div>
+<div class="card-event card text-bg-light w-auto">
+  <div class="card-header">{{ start }} - {{ end }}</div>
+  <div class="card-body">
+    <h5 class="card-title mb-1">{{ room }}</h5>
+    <hr>
+    <span class="fw-light">para </span> <span class="fw-bold">{{ requester }}</span>
+    <p class="card-text mt-1">
+      {{ subject }}
+    </p>
   </div>
-
+  <div class="card-status">
+    <p [ngClass]="colorStatus" class="fs-6 fw-normal badge">{{ status }}</p>
+  </div>
 </div>

@@ -1,3 +1,13 @@
-<app-mheader />
-<app-navbar-events />
-<app-card-event />
+<div class="container__events">
+  @for (event of mocks; track $index) {
+    <app-card-event
+      [requester]="event.requester"
+      [room]="event.room"
+      [subject]="event.subject"
+      [start]="event.start"
+      [end]="event.end"
+      [status]="event.status"
+    />
+  }
+
+</div>

@@ -1,7 +1,7 @@
 <nav class="nav d-flex justify-content-center p-3 bg-dark shadow mb-4">
   @for (item of options; track $index) {
     <div class="nav-item m-1">
-      <a [href]="item.url" class="btn btn-primary" style="width: 150px;">{{ item.name }}</a>
+      <a [routerLink]="item.url" routerLinkActive="text-bg-primary" class="btn btn-secondary" style="width: 150px;">{{ item.name }}</a>
     </div>
   }
 
