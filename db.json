@@ -1,0 +1,114 @@
+{
+  "reservas_futuras": [
+    {
+      "id": 1,
+      "usuario": "Ana Souza",
+      "sala": "Sala 101",
+      "descricao": "Apresentação de projeto",
+      "hora_inicio": "2025-04-10T09:00:00Z",
+      "hora_fim": "2025-04-10T11:00:00Z",
+      "status": "Aprovado"
+    },
+    {
+      "id": 2,
+      "usuario": "Carlos Lima",
+      "sala": "Sala 202",
+      "descricao": "Reunião de equipe",
+      "hora_inicio": "2025-04-15T14:00:00Z",
+      "hora_fim": "2025-04-15T16:00:00Z",
+      "status": "Pendente"
+    },
+    {
+      "id": 3,
+      "usuario": "Fernanda Alves",
+      "sala": "Sala 303",
+      "descricao": "Treinamento técnico",
+      "hora_inicio": "2025-05-01T08:00:00Z",
+      "hora_fim": "2025-05-01T10:30:00Z",
+      "status": "Aprovado"
+    },
+    {
+      "id": 4,
+      "usuario": "João Pereira",
+      "sala": "Sala 101",
+      "descricao": "Entrevista",
+      "hora_inicio": "2025-04-25T13:00:00Z",
+      "hora_fim": "2025-04-25T14:00:00Z",
+      "status": "Pendente"
+    },
+    {
+      "id": 5,
+      "usuario": "Mariana Dias",
+      "sala": "Sala 204",
+      "descricao": "Defesa de TCC",
+      "hora_inicio": "2025-06-10T09:00:00Z",
+      "hora_fim": "2025-06-10T11:00:00Z",
+      "status": "Aprovado"
+    },
+    {
+      "id": 6,
+      "usuario": "Ricardo Gomes",
+      "sala": "Sala 105",
+      "descricao": "Oficina de inovação",
+      "hora_inicio": "2025-04-20T10:00:00Z",
+      "hora_fim": "2025-04-20T12:00:00Z",
+      "status": "Recusado"
+    }
+  ],
+  "reservas_passadas": [
+    {
+      "id": 7,
+      "usuario": "Beatriz Moura",
+      "sala": "Sala 404",
+      "descricao": "Workshop de design",
+      "hora_inicio": "2025-03-20T09:00:00Z",
+      "hora_fim": "2025-03-20T11:00:00Z",
+      "status": "Aprovado"
+    },
+    {
+      "id": 8,
+      "usuario": "Lucas Fernandes",
+      "sala": "Sala 302",
+      "descricao": "Revisão de conteúdo",
+      "hora_inicio": "2025-04-01T14:00:00Z",
+      "hora_fim": "2025-04-01T15:30:00Z",
+      "status": "Pendente"
+    },
+    {
+      "id": 9,
+      "usuario": "Juliana Costa",
+      "sala": "Sala 205",
+      "descricao": "Reunião com clientes",
+      "hora_inicio": "2025-03-28T08:30:00Z",
+      "hora_fim": "2025-03-28T10:00:00Z",
+      "status": "Aprovado"
+    },
+    {
+      "id": 10,
+      "usuario": "Eduardo Ribeiro",
+      "sala": "Sala 306",
+      "descricao": "Palestra motivacional",
+      "hora_inicio": "2025-02-15T09:00:00Z",
+      "hora_fim": "2025-02-15T12:00:00Z",
+      "status": "Recusado"
+    },
+    {
+      "id": 11,
+      "usuario": "Larissa Martins",
+      "sala": "Sala 109",
+      "descricao": "Apresentação de resultados",
+      "hora_inicio": "2025-03-10T10:00:00Z",
+      "hora_fim": "2025-03-10T11:30:00Z",
+      "status": "Pendente"
+    },
+    {
+      "id": 12,
+      "usuario": "Pedro Carvalho",
+      "sala": "Sala 401",
+      "descricao": "Simulado ENEM",
+      "hora_inicio": "2025-01-30T08:00:00Z",
+      "hora_fim": "2025-01-30T12:00:00Z",
+      "status": "Aprovado"
+    }
+  ]
+}
