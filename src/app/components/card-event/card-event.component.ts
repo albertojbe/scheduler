@@ -15,15 +15,11 @@ export class CardEventComponent implements OnInit {
   @Input() start: string = "00:00";
   @Input() end: string = "00:00"
   @Input() status: string = ""
-  colorStatus: Record<string, boolean> = {
-    'text-bg-primary': this.status === 'Aguardando',
-    'text-bg-sucess': this.status === 'Aprovado',
-    'text-bg-alert': this.status === 'Recusado'
-  }
+  colorStatus: Record<string, boolean> = {}
 
   ngOnInit(): void {
     this.colorStatus = {
-      'text-bg-primary': this.status === 'Aguardando',
+      'text-bg-primary': this.status === 'Pendente',
       'text-bg-success': this.status === 'Aprovado',
       'text-bg-danger': this.status === 'Recusado'
     }
