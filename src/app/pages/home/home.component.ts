@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarEventsComponent } from "../../components/navbar-events/navbar-events.component";
+import { ReservaDto } from '../../models/DTOs/reserva.dto';
+import { extractDate, extractHours } from '../../utils/data.util';
 import { CardEventComponent } from "../../components/card-event/card-event.component";
-import { MOCK_EVENTS } from '../../../data/mock_events';
-import {ReservasServiceService} from '../../services/reservas-service.service'
-import { ReservaResponse } from '../../../models/reservas.model';
-import { ReservaDto } from '../../../models/DTOs/reserva.dto';
-import { extractDate, extractHours } from '../../../utils/data.util';
+import { NavbarEventsComponent } from "../../components/navbar-events/navbar-events.component";
+import { ReservasServiceService } from '../../services/reservas-service.service';
+import { reservaMapper } from '../../mappers/reserva.mapper';
 
 @Component({
   selector: 'app-home',
@@ -13,27 +12,30 @@ import { extractDate, extractHours } from '../../../utils/data.util';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit{
   reservas: ReservaDto[] = []
 
   constructor (private reservasApi: ReservasServiceService) {
   }
+
+  private agruparPorData(reservas: ReservaDto[]): Record<string, ReservaDto[]> {
+    return reservas.reduce((reservaPorData, reserva) => {
+      if (!reservaPorData[reserva.date]) {
+        reservaPorData[reserva.date] = [];
+        console.log(reserva)
+      }
+      reservaPorData[reserva.date].push(reserva);
+      return reservaPorData
+    }, {} as Record<string, ReservaDto[]>);
+  } 
+  
   ngOnInit(): void {
     this.reservasApi.getReservasFuturas().subscribe((response) => {
       for (let reserva of response) {
-        console.log(typeof reserva.hora_fim)
-        this.reservas.push({
-          requester: reserva.usuario,
-          room: reserva.sala,
-          subject: reserva.descricao,
-          date: extractDate(new Date(reserva.hora_inicio)),
-          start: extractHours(new Date(reserva.hora_inicio)),
-          end: extractHours(new Date(reserva.hora_fim)),
-          status: reserva.status
-        });
+        this.reservas.push(reservaMapper(reserva));
       }
-      console.log(response)
+      console.log(this.agruparPorData(this.reservas));
     });
-
   }
+
 }
