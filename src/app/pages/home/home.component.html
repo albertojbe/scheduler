@@ -1,6 +1,6 @@
-<div class="container__events">
-  @for (event of mocks; track $index) {
-    <app-card-event
+<div class="container__events row justify-content-start">
+  @for (event of reservas; track $index) {
+    <app-card-event class="col d-flex justify-content-center"
       [requester]="event.requester"
       [room]="event.room"
       [subject]="event.subject"

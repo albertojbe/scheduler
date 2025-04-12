@@ -2,16 +2,7 @@ import { Injectable } from '@angular/core';
 import { enviroment } from '../enviroments/enviroment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-type Reserva = {
-  id: number;
-  usuario: string;
-  sala: string;
-  descricao: string;
-  hora_inicio: Date;
-  hora_fim: Date;
-  status: "Aprovado" | "Recusado" | "Pendente";
-}
+import { ReservaResponse } from '../../models/reservas.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +16,7 @@ export class ReservasServiceService {
     this.baseURL = enviroment.API_URL
   }
 
-  getReservasFuturas(): Observable<Reserva> {
+  getReservasFuturas(): Observable<ReservaResponse[]> {
     this.responseData = this.http.get(this.baseURL + "reservas_futuras");
     return this.responseData;
   }
