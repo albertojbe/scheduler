@@ -1,13 +1,14 @@
-<div class="container__events row justify-content-start">
-  @for (event of reservas; track $index) {
-    <app-card-event class="col d-flex justify-content-center"
-      [requester]="event.requester"
-      [room]="event.room"
-      [subject]="event.subject"
-      [start]="event.start"
-      [end]="event.end"
-      [status]="event.status"
-    />
-  }
-
-</div>
+<main class="d-flex justify-content-center">
+  <div class="container__events row">
+    @for (event of reservas; track $index) {
+      <app-card-event class="col d-flex justify-content-center m-3"
+        [requester]="event.requester"
+        [room]="event.room"
+        [subject]="event.subject"
+        [start]="event.start"
+        [end]="event.end"
+        [status]="event.status"
+      />
+    }
+  </div>  
+</main>
