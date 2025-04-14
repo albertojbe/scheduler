@@ -5,7 +5,7 @@ import { NavbarEventsComponent } from "./components/navbar-events/navbar-events.
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MheaderComponent, NavbarEventsComponent],
+  imports: [RouterOutlet, MheaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

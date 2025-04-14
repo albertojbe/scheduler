@@ -10,7 +10,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class NavbarEventsComponent {
 
   options = [
-    {name: "Upcoming", url: "home"},
-    {name: "Past", url: "teste"}
+    {name: "Upcoming", url: "eventos-futuros"},
+    {name: "Past", url: "eventos-passados"}
   ]
 }

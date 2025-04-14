@@ -20,4 +20,9 @@ export class ReservasServiceService {
     this.responseData = this.http.get(this.baseURL + "reservas_futuras");
     return this.responseData;
   }
+
+  getReservasPassadas(): Observable<ReservaResponse[]> {
+    this.responseData = this.http.get(this.baseURL + "reservas_passadas");
+    return this.responseData;
+  }
 }

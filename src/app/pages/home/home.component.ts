@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { ListEventsComponent } from "../../components/list-events/list-events.component";
+import { RouterOutlet } from '@angular/router';
+import { NavbarEventsComponent } from "../../components/navbar-events/navbar-events.component";
 
 @Component({
   selector: 'app-home',
-  imports: [ListEventsComponent],
+  imports: [RouterOutlet, NavbarEventsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-    
+
 }

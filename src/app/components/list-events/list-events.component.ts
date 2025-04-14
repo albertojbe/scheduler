@@ -3,6 +3,7 @@ import { ReservaDto } from '../../models/DTOs/reserva.dto';
 import { ReservasServiceService } from '../../services/reservas-service.service';
 import { reservaMapper } from '../../mappers/reserva.mapper';
 import { CardEventComponent } from "../card-event/card-event.component";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list-events',
@@ -12,10 +13,10 @@ import { CardEventComponent } from "../card-event/card-event.component";
 })
 export class ListEventsComponent implements OnInit {
   reservas: ReservaDto[] = []
-  
-    constructor (private reservasApi: ReservasServiceService) {
+
+    constructor (private reservasApi: ReservasServiceService, private activeRoute: ActivatedRoute) {
     }
-    
+
     private agruparPorData(reservas: ReservaDto[]): Record<string, ReservaDto[]> {
       return reservas.reduce((reservaPorData, reserva) => {
         if (!reservaPorData[reserva.date]) {
@@ -26,13 +27,25 @@ export class ListEventsComponent implements OnInit {
         return reservaPorData
       }, {} as Record<string, ReservaDto[]>);
     }
-    
+
     ngOnInit(): void {
-      this.reservasApi.getReservasFuturas().subscribe((response) => {
-        for (let reserva of response) {
-          this.reservas.push(reservaMapper(reserva));
+      this.activeRoute.url.subscribe((res) => {
+        if(res[0].path === "eventos-futuros") {
+          this.reservasApi.getReservasFuturas().subscribe((response) => {
+            for (let reserva of response) {
+              this.reservas.push(reservaMapper(reserva));
+            }
+          });
         }
-        console.log(this.agruparPorData(this.reservas));
+        else {
+          this.reservasApi.getReservasPassadas().subscribe((response) => {
+            for (let reserva of response) {
+              this.reservas.push(reservaMapper(reserva));
+            }
+          });
+        }
       });
+
+
     }
   }
