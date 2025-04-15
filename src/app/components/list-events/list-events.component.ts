@@ -4,15 +4,19 @@ import { ReservasServiceService } from '../../services/reservas-service.service'
 import { reservaMapper } from '../../mappers/reserva.mapper';
 import { CardEventComponent } from "../card-event/card-event.component";
 import { ActivatedRoute } from '@angular/router';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-list-events',
-  imports: [CardEventComponent],
+  imports: [CardEventComponent, NgClass],
   templateUrl: './list-events.component.html',
   styleUrl: './list-events.component.css'
 })
 export class ListEventsComponent implements OnInit {
   reservas: ReservaDto[] = []
+  reservasAgrupadas: Record<string, ReservaDto[]> = {}
+  reservasDatas: string[] = [];
+  contadorCollapse: number = 0;
 
     constructor (private reservasApi: ReservasServiceService, private activeRoute: ActivatedRoute) {
     }
@@ -35,6 +39,8 @@ export class ListEventsComponent implements OnInit {
             for (let reserva of response) {
               this.reservas.push(reservaMapper(reserva));
             }
+            this.reservasAgrupadas = this.agruparPorData(this.reservas);
+            this.reservasDatas = Object.keys(this.reservasAgrupadas);
           });
         }
         else {
@@ -42,6 +48,8 @@ export class ListEventsComponent implements OnInit {
             for (let reserva of response) {
               this.reservas.push(reservaMapper(reserva));
             }
+            this.reservasAgrupadas = this.agruparPorData(this.reservas);
+            this.reservasDatas = Object.keys(this.reservasAgrupadas);
           });
         }
       });

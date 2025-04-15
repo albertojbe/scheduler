@@ -1,12 +1,25 @@
 <div class="container__events row">
-    @for (event of reservas; track $index) {
-      <app-card-event class="col d-flex justify-content-center m-3"
-        [requester]="event.requester"
-        [room]="event.room"
-        [subject]="event.subject"
-        [start]="event.start"
-        [end]="event.end"
-        [status]="event.status"
-      />
-    }
-</div>  
+  <div class="accordion accordion-flush" id="accordionFlushEvents">
+    @for (data of reservasDatas; track $index) {
+        <div class="accordion-item">
+          <h2 class="accordion-header ">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapse' + $index">{{ data }}</button>
+          </h2>
+          <div [id]="'flush-collapse' + $index" class="accordion-collapse collapse" [ngClass]="{'show':$index===0}"  data-bs-parent="accordionFlushEvents">
+            <div class="accordion-body d-flex flex-wrap">
+              @for (reserva of reservasAgrupadas[data]; track $index) {
+                <app-card-event class="me-3 mb-3"
+                  [requester]="reserva.requester"
+                  [room]="reserva.room"
+                  [subject]="reserva.subject"
+                  [start]="reserva.start"
+                  [end]="reserva.end"
+                  [status]="reserva.status"
+                />
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+</div>
